@@ -12,9 +12,7 @@
 
     <h2> <?php echo $video['Video']['title'];?></h2>  
    
-    <p class="overview">
-      <?php echo $video['Video']['description2'];?>
-    </p>
+    
     
     <object width="550" height="390">
   <param name="movie"
@@ -54,7 +52,7 @@
 
 
     <p class="body_text">
-      <?php echo $video['Video']['description'];?>
+      <?php echo $video['Video']['description2'];?>
     </p>
 <!--
     <div class="other_news">

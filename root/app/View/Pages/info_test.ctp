@@ -108,10 +108,10 @@
     <br>
 
     
-    <!-- <div class="fb-comments" data-href="<?php echo trim(Router::url( $this->here, true ))?>" data-width="576" data-numposts="100">
-    </div> -->
-    <div class="fb-comments" data-href="https://www.facebook.com/mauricio.olivera/posts/10209310783345775?notif_t=feedback_reaction_generic&notif_id=1464196308758185" data-width="576" data-numposts="100">
+    <div class="fb-comments" data-href="<?php echo trim(Router::url( $this->here, true ))?>" data-width="576" data-numposts="100">
     </div>
+    <!-- <div class="fb-comments" data-href="https://www.facebook.com/mauricio.olivera/posts/10209310783345775?notif_t=feedback_reaction_generic&notif_id=1464196308758185" data-width="576" data-numposts="100">
+    </div> -->
 
 
     <div class="clip_frame grpelem hidden" id="u1291"><!-- image -->

@@ -217,6 +217,13 @@ public function info_test($post_id=0){
 		$this->set("video",$video);
 	}
 
+	public function video_player_alt($id){
+		$this->layout = 'public';
+		$video=$this->Video->findById($id);
+		//var_dump($video);
+		$this->set("video",$video);
+	}
+
 	public function services(){
 		$this->layout = 'public';
 	}
