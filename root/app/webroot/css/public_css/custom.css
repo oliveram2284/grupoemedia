@@ -1,0 +1,235 @@
+#u850 {
+    z-index: 94;
+    width: 628px;
+    background-color: #DCDCDC;
+    position: relative;
+    margin-right: -10000px;
+    margin-top: 200px;
+    padding: 20px 10px 6.299999999999869px 8px;
+}
+
+#u850{
+    margin-top: 220px;
+}
+#u851_img{
+    height: 400px;
+
+}
+
+a.main_title{
+  z-index: 97;
+    width: 610px;
+    min-height: 52px;
+    background-color: transparent;
+    font-size: 20px;
+    line-height: 24px;
+    font-family: open-sans, sans-serif;
+    font-weight: 600;
+    position: relative;
+    text-decoration: none;
+    color: #000000;
+    
+}
+
+a.subs_title{
+    z-index: 135;
+    width: 315px;
+    min-height: 47px;
+    background-color: transparent;
+    font-size: 16px;
+    line-height: 19px;
+    font-family: open-sans, sans-serif;
+    font-weight: 600;
+    position: relative;
+     text-decoration: none;
+    color: #333;
+}
+
+
+.tag_locales{
+
+    z-index: 106;
+    width: 628px;
+    padding-bottom: 3px;
+    position: relative;
+    margin-right: -10000px;
+    background-color: #FCEE21;
+
+}
+.tag_nacionales{
+
+    z-index: 106;
+    width: 628px;
+    padding-bottom: 3px;
+    position: relative;
+    margin-right: -10000px;
+
+    background-color: #00FFFF;
+}
+.tag_internacionales{
+    z-index: 106;
+    width: 628px;
+    padding-bottom: 3px;
+    position: relative;
+    margin-right: -10000px;
+
+    background-color: #d04dff;
+}
+.tag_deportes{
+
+    z-index: 106;
+    width: 628px;
+    padding-bottom: 3px;
+    position: relative;
+    margin-right: -10000px;
+
+    background-color: #00ff00;
+}
+.tag_videos{
+
+    z-index: 106;
+    width: 628px;
+    padding-bottom: 3px;
+    position: relative;
+    margin-right: -10000px;
+
+    background-color: #FF00FF;
+}
+
+.tag_other{
+
+    z-index: 106;
+    width: 628px;
+    padding-bottom: 3px;
+    position: relative;
+    margin-right: -10000px;
+    background-color: #FFFFFF;
+}
+.cat_label p{
+    margin: 6px 10px 6px;
+    font-size: 15px !important;
+    line-height: 10px;
+    font-family: open-sans, sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+
+.block_tag_locales{
+    z-index: 129;
+    width: 315px;
+    background-color: #FCEE21;
+    padding-bottom: 3px;
+    position: relative;
+    margin-right: -10000px;
+}
+.block_tag_nacionales{
+    z-index: 129;
+    width: 315px;
+    background-color: #00FFFF;
+    padding-bottom: 3px;
+    position: relative;
+    margin-right: -10000px;
+}
+
+.block_tag_internacionales{
+    z-index: 129;
+    width: 315px;
+    background-color: #d04dff;
+    padding-bottom: 3px;
+    position: relative;
+    margin-right: -10000px;
+}
+
+.block_tag_deportes{
+    z-index: 129;
+    width: 315px;
+    background-color: #00ff00;
+    padding-bottom: 3px;
+    position: relative;
+    margin-right: -10000px;
+}
+
+.block_tag_other{
+    z-index: 129;
+    width: 315px;
+    background-color: #FFFFFF;
+    padding-bottom: 3px;
+    position: relative;
+    margin-right: -10000px;
+}
+
+
+.img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    background-color: #000000;
+}
+
+ img[src='Error.src']{
+  display: none;
+}
+
+ li.vbox {
+    margin-bottom: 10px;
+}
+
+li.more_video{
+    text-align: right;
+    font-size: 18px;
+}
+li.more_video a{
+    
+    color: #FF00FF;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.media-object{
+}
+
+.media-body a{
+    text-decoration: none;
+}
+
+h5.media-heading{
+    color: #719bc1;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.media-body p{
+    color: gray;
+    font-size: 11px;
+    margin-bottom: 10px;
+}
+
+
+.pagination .current,
+.pagination .disabled {
+    float: left;
+    padding: 0 14px;
+
+    color: #999;
+    cursor: default;
+    line-height: 34px;
+    text-decoration: none;
+
+    border: 1px solid #DDD;
+    border-left-width: 0;
+}
+
+.pagination .current, .pagination .disabled{
+    border: none;
+    display: none;
+}
+.pagination > li > a, .pagination > li > span {
+    color: #FF00FF;
+}
+.pagination > .active > a{
+    border: 1px solid  #FF00FF;
+    font-weight: bold;
+    background-color: #ddd;
+     color: #FF00FF;
+}
