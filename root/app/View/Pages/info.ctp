@@ -1,5 +1,10 @@
 <?php echo $this->Html->css(array('public_css/noticia.css',))?>
-
+<style type="text/css">
+  .fb-share-button{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+</style>
 <div class="row">
   <div class="left_col">
     <div class="categ cat_label <?php echo (isset($post['Category']['name']))? 'tag_'.$post['Category']['slug']: 'tag_other'?>">
@@ -21,7 +26,7 @@
     <div class="new_img" style="background-image: url(<?php echo $img_url ?> );"
       >    
     </div>
-    <div class="share-button sharer-0" style="display: block;">
+    <div class="share-button sharer-0 hidden" style="display: block;">
       <label class="entypo-export">
         <span>COMPARTIR</span>
       </label>
@@ -35,7 +40,7 @@
         </ul>
       </div>
     </div>
-
+    <div class="fb-share-button pull-right" data-href="http://grupoemedia.ittsj.com/deportes.html/noticia-de-prueba" data-layout="button" data-mobile-iframe="true"></div>
     <div class="clearfix colelem hidden" id="pbuttonu1184"><!-- group -->
        <div class="Button rounded-corners growButton clearfix grpelem" id="buttonu1184"><!-- container box -->
         <div class="clearfix grpelem" id="u1220"><!-- group -->
@@ -98,9 +103,9 @@
       
     </div>
 
-    <div class="clip_frame grpelem" id="u1291"><!-- image -->
-      <img class="block" id="u1291_img" src="<?php echo $this->webroot."img/imagen pegada 1920x1080-crop-u1291.jpg"; ?>" alt=""/>
-     </div>
+    <div class="fb-comments" data-href="<?php echo trim(Router::url( $this->here, true ))?>" data-width="576" data-numposts="5" fb-xfbml-state="rendered" >
+    </div>
+
   </div>
   <div class="right_col">
     <ul class="AccordionWidget clearfix colelem" id="accordionu574"><!-- vertical box -->

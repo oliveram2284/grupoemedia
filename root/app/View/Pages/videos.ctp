@@ -3,6 +3,52 @@
 <div class="row">
   <div class="left_col">
 
+
+  <div id="fb-root"></div>
+<script>
+/*(function(d, s, id) {
+
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.6&appId=1812080245687185";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));*/
+ window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '215834698809523',
+      xfbml      : true,
+      version    : 'v2.5',
+      method: 'feed',
+  link: 'https://developers.facebook.com/docs/',
+  caption: 'An example caption',
+    },function(response){alert("asd")});
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/es_LA/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+</script>
+
+  <!-- Your share button code -->
+  <div class="fb-share-button" 
+    data-href="<?php echo trim(Router::url( $this->here, true ))?>" 
+    data-layout="button"
+    >
+  </div>
+
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
     <ul style="none-style">
       <?php foreach ($videos as $key => $item):?>
         <li class="vbox">

@@ -1,7 +1,16 @@
 <?php echo $this->Html->css(array('public_css/noticia.css',))?>
-
+<div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.6&appId=1812080245687185";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 <div class="row">
   <div class="left_col">
+
+
     <div class="categ cat_label <?php echo (isset($post['Category']['name']))? 'tag_'.$post['Category']['slug']: 'tag_other'?>">
       <p><?php echo strtoupper($post['Category']['name']);?>  <span id="u855-2"></span></p>
     </div>
@@ -18,18 +27,24 @@
     <?php 
       $img_url=(is_null($post['Post']['image']))? $post['Post']['image_url']: $this->webroot."files/".$post['Post']['image'];
     ?>
-    <div class="new_img" style="background-image: url(<?php echo $img_url ?> );"
-      >    
+    <div class="new_img" style="background-image: url(<?php echo $img_url ?> );">    
     </div>
+      <div class="fb-share-button" 
+    data-href="<?php echo trim(Router::url( $this->here, true ))?>" 
+    data-layout="button"
+    >
+  </div>
     <div class="share-button sharer-0" style="display: block;">
+
+      
       <label class="entypo-export">
         <span>COMPARTIR</span>
       </label>
       <div class="social load top right networks-4">
         <ul>
-          <li class="entypo-pinterest" data-network="pinterest"></li>
+          <li class="entypo-pinterest" data-network="pinterest"> </li>
           <li class="entypo-twitter" data-network="twitter"></li>
-          <li class="entypo-facebook" data-network="facebook"></li>
+          <li class="entypo-facebook" data-network="facebook"> </li>
           <li class="entypo-gplus" data-network="google_plus"></li>
           <li class="entypo-paper-plane" data-network="email"></li>
         </ul>
@@ -97,18 +112,8 @@
       
       
     </div>
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.6&appId=1812080245687185";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-    <br>
 
-    
-    <div class="fb-comments" data-href="<?php echo trim(Router::url( $this->here, true ))?>" data-width="576" data-numposts="100">
+    <div class="fb-comments" data-href="<?php echo trim(Router::url( $this->here, true ))?>" data-width="576" data-numposts="5" fb-xfbml-state="rendered" >
     </div>
     <!-- <div class="fb-comments" data-href="https://www.facebook.com/mauricio.olivera/posts/10209310783345775?notif_t=feedback_reaction_generic&notif_id=1464196308758185" data-width="576" data-numposts="100">
     </div> -->
@@ -147,6 +152,12 @@
         <?php echo $this->Html->image('radio-online.jpg', array('id'=>'u619_img', 'class'=>'block', 'alt' => 'Grupo Medios','width'=>"314" ,'height'=>"149" )) ?>
        </div></div></li>
       </ul>
+
+      <div class="banner_box">
+        <div class="col-lg-12">asd</div>   
+
+      </div>
+
     <div class="grpelem hidden" id="u1190"><!-- custom html -->      
       <div class="MT_resize_buttons">
         <div class="MT_grow table">

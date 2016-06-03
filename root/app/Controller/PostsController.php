@@ -17,7 +17,7 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-
+include APP . 'Plugin' . DS."Facebook/autoload.php";
 App::uses('AppController', 'Controller');
 
 /**
@@ -95,9 +95,10 @@ class PostsController extends AppController {
                
       }         
       
-      
-      if ($this->Post->save($this->request->data)) {   
 
+      if ($this->Post->save($this->request->data)) {   
+        $post_id=$this->Post->getInsertID();
+        
         if(isset($files)){
           foreach ($files as $key => $item) {
            
@@ -105,7 +106,7 @@ class PostsController extends AppController {
             $type=($temp[0]=='images')?"image":"audio";
             
             $file_temp=array(
-              'post_id'=>$this->Post->getInsertID(),
+              'post_id'=>$post_id,
               'filename'=>end($temp),
               'path'=>$item,
               'type'=> $type,
@@ -115,8 +116,9 @@ class PostsController extends AppController {
             $this->File->save(array('File'=>$file_temp));
           }
         }              
-
-
+        
+        $result=$this->public_on_fb($post_id);
+        
         $this->Session->setFlash(__('La Notícia se ha guardado'));
         return $this->redirect(array('action' => 'index'));
       }
@@ -314,5 +316,74 @@ class PostsController extends AppController {
         
     return $this->redirect(array('action' => 'index'));
   }
+
+
+  public function public_on_fb($id){    
+    $this->layout=false;
+    $this->render(false);
+
+    $data=$this->Post->findById($id);
+    
+    if(empty($data)){
+      return false;
+    }
+    
+    $page_id=Configure::read('fb_page_id') ;
+    $fb = new Facebook\Facebook([
+      'app_id' => Configure::read('fb_api_id'),
+      'app_secret' => Configure::read('fb_api_key'),
+      'default_graph_version' => 'v2.5',
+    ]);
+
+    
+
+    
+    $url="/".$data['Category']['slug'].".html/". $data['Post']['slug'];
+    
+    if($data['Post']['image']!=''){
+      $img=$this->webroot."files/".$data['Post']['image'];      
+    }else{
+      $img=$data['Post']['image_url'];      
+    }
+
+    $imgUrl=Router::url($img, true);
+   
+    $fullUrl = Router::url($url, true);
+
+    $linkData = array(
+      'name' => $data['Post']['title'],
+      'message' => $data['Post']['overview'],
+      'caption' => 'grupoemedia.com',
+      'link' => $fullUrl,
+      'description' => $data['Post']['overview'], 
+      'picture' => $imgUrl,
+      //'access_token' =>  $_SESSION['facebook_access_token'],
+      'actions' => json_encode(array('name' => utf8_encode('Leer Artículo'),
+      'link' =>  $fullUrl
+      )),
+    );
+
+
+    $response = $fb->get('/me/accounts',  Configure::read('fb_user_token'));
+    $appAccessToken=null;
+    foreach ($response->getDecodedBody() as $allPages) {
+      foreach ($allPages as $page ) {  
+        if (isset($page['id']) && $page['id'] == $page_id) { // Suppose you save it as this variable
+          $appAccessToken = (string) $page['access_token'];
+          break;
+        }
+      }
+    }
+
+    $response = $fb->post(
+      '/'.$page_id.'/feed', $linkData,
+      $appAccessToken
+    );
+
+    $postId = $response->getGraphNode();
+   
+    return $postId;
+  }
+
 
 }

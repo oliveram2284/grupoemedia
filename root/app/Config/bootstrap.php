@@ -66,7 +66,7 @@ Cache::config('default', array('engine' => 'File'));
  * CakePlugin::loadAll(); // Loads all plugins at once
  * CakePlugin::load('DebugKit'); // Loads a single plugin named DebugKit
  */
-
+CakePlugin::loadAll(); 
 /**
  * To prefer app translation over plugin translation, you can set
  *
@@ -134,7 +134,24 @@ Configure::write('Bs3.Form.styles', array(
     )
 ));
 
+CakePlugin::load('Facebook');
 
-Configure::write("fb_api_id",'215834698809523');
-Configure::write("fb_api_key",'923e64577c82c16da513982ce990b60e');
-Configure::write("fb_api_token",'4270857436c1ae2fbd7517c8f1ada23a');
+/** demo **/
+
+Configure::write("fb_api_id",'1638758863114974');
+Configure::write("fb_api_key",'d0777ddcd0b818a85d65783644cf189d');
+Configure::write('url_callback','http://grupoemedia.ittsj.com/login-callback');
+Configure::write('fb_page_id','1777427702472833');
+Configure::write('fb_user_token','EAAXScUfokt4BAPBtrDvsYtOvC8r9I4CGlWTvT3oIByGPozMsRNEZCFz2LmWagNVoR8ZB5fZC1UZBEGsTeptzZAKPZAuBAsD5aVdWWtkSHdqudpB90jqHEiy1YwD3hfTyA68dL4Yax3yZAFGrfLxNdkGBdMUNZAr38XkQYRMqhwyilLR9zauZCFZAxo');    
+Configure::write("fb_app_token",'1638758863114974|zvTfhAKLdtCpjFzvT4ZAdKfnuGg');
+
+
+/** live **/
+/*
+Configure::write("fb_api_id",'249297292100310');
+Configure::write("fb_api_key",'dfbf4d9fad10adc55d6a54f898e9bf8e');
+Configure::write('fb_url_callback','http://grupoemedia.ittsj.com/login-callback');
+Configure::write('fb_page_id','600750570056224');
+Configure::write('fb_user_token','EAADivAyKAtYBAFsvuymXEchBnclAK7DSJ3DNhJL0YsfKwBRyvMTLHdIVQwKZAT1bLgRQvNYBYywrTD5LhaK394kRSxBGULWZBOkuFNEvxD45EFJnvj3tLqVogQPsUVXqg2WSzvSHfhpnqWZAUztkdXhiMCEObBnZAHOfGZCZBwmwZDZD');    
+Configure::write("fb_app_token",'249297292100310|UG6qdN_RTrobhqUYbPMVh8IB3Aw');*/
+

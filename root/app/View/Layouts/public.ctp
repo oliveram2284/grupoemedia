@@ -11,6 +11,12 @@
   <meta name="generator" content="2015.1.0.342"/>
   <title>Groupoemedia</title>
 
+  <meta property="og:url"           content="<?php echo trim(Router::url( $this->here, true ))?>" />
+  <meta property="og:type"          content="article" />
+  <meta property="og:site_name"     content="grip" />
+  <meta property="og:title"         content="Groupoemedia" />
+  <meta property="og:description"   content="Portal de Noticias" />
+  <meta property="og:image"         content="http://www.clarin.com/politica/politica/Mensaje-Francisco-Letranen-EFEANGELO-CARCONI_CLAIMA20160526_0406_28.jpg" />
   <!-- CSS -->
   <?php
     /*echo $this->Html->meta('icon');*/
@@ -202,6 +208,26 @@ display: inline;
 }
 
 </style>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '215834698809523',
+      xfbml      : true,
+      version    : 'v2.5',
+      method: 'feed',
+  link: 'https://developers.facebook.com/docs/',
+  caption: 'An example caption',
+    },function(response){alert("asd")});
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/es_LA/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
  </head>
  <body>
   <!--HTML Widget code--> 
@@ -270,7 +296,7 @@ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 <script type="text/javascript">
 $(document).ready(function () {
 	$('#123muse').rssfeed('http://www.clarin.com/rss/lo-ultimo/', {
-		limit: 5,
+		limit: 10,
         dateformat: 'date',
 		linktarget: '_blank',
         sort: 'date',
@@ -278,12 +304,12 @@ $(document).ready(function () {
         header: false,
         date: true,
         snippet: false,
-        media: false,
+        media: true,
         showerror: true,
         titletag: 'h3 class="rss-title"',
         errormsg: 'What happened? We cant get the feed. Try later.',
         content: true,
-        linkcontent: false
+        linkcontent: true
         // }, function(e) {
         
         // $(e).find('div.rss-body').vTicker({

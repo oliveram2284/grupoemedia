@@ -56,6 +56,7 @@
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));
 
 	Router::connect('/display', array('controller' => 'pages', 'action' => 'display'));
+	Router::connect('/login-callback', array('controller' => 'demos', 'action' => 'login_callback'));
 
 
 /**

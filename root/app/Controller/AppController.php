@@ -20,7 +20,13 @@
  */
 
 App::uses('Controller', 'Controller');
+//App::import("Vendor", "FacebookAuto", array("file" => "Facebook/autoload.php"));
+    
 
+App::import('Vendor', 'Facebook', array
+(
+    'file' => 'facebook-php-sdk' . DS . 'src' . DS . 'facebook.php'
+));
 /**
  * Application Controller
  *
