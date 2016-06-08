@@ -18,17 +18,21 @@ $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto"
         </div>     
         <div class="clearfix grpelem" id="u766">
           <!-- group -->      
-          <div class="clip_frame grpelem" id="u728">
+          <div class="clip_frame grpelem hidden" id="u728">
             <!-- image -->       
             <?php echo $this->Html->image('rss.png', array('id'=>'u728_img', 'class'=>'block', 'alt' => 'Grupo Medios','width'=>"25" ,'height'=>"25" )) ?>      
           </div>      
           <div class="clip_frame grpelem" id="u713">
             <!-- image -->       
-            <?php echo $this->Html->image('fcbk.png', array('id'=>'u713_img', 'class'=>'block', 'alt' => 'Grupo Medios','width'=>"25" ,'height'=>"25" )) ?>      
+            <a href="https://www.facebook.com/LaRedSanJuan" target="_blank">            
+              <?php echo $this->Html->image('fcbk.png', array('id'=>'u713_img', 'class'=>'block', 'alt' => 'Grupo Medios','width'=>"25" ,'height'=>"25" )) ?>
+            </a>      
           </div>      
           <div class="clip_frame grpelem" id="u735">
-            <!-- image -->       
-            <?php echo $this->Html->image('twtter.png', array('id'=>'u735_img', 'class'=>'block', 'alt' => 'Grupo Medios','width'=>"25" ,'height'=>"25" )) ?>      
+            <!-- image --> 
+            <a href="https://twitter.com/OtroDiaParaiso" target="_blank">     
+              <?php echo $this->Html->image('twtter.png', array('id'=>'u735_img', 'class'=>'block', 'alt' => 'Grupo Medios','width'=>"25" ,'height'=>"25" )) ?>      
+            </a> 
           </div>      
           <div class="clip_frame grpelem" id="u742">
             <!-- image -->       
@@ -36,7 +40,9 @@ $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto"
           </div>         
           <div class="clip_frame grpelem" id="u721">
             <!-- image -->       
-            <?php echo $this->Html->image('mail.png', array('id'=>'u721_img', 'class'=>'block', 'alt' => 'Grupo Medios','width'=>"25" ,'height'=>"25" )) ?>      
+            <a href="mailto:info@grupoemedios.com" target="_blank">
+              <?php echo $this->Html->image('mail.png', array('id'=>'u721_img', 'class'=>'block',  'alt' => 'Grupo Medios','width'=>"25" ,'height'=>"25" )) ?>
+            </a>      
           </div>     
         </div>     
         <div class="clip_frame grpelem" id="u779">
