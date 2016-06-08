@@ -93,31 +93,11 @@
         <p><?php echo strtoupper($last_post['Category']['name']);?>  <span id="u855-2"></span></p>
        </div>
       </div>
+
+      
      <ul class="AccordionWidget clearfix grpelem" id="accordionu574"><!-- vertical box -->
-      <li class="AccordionPanel clearfix colelem" id="u579"><!-- vertical box --><div class="AccordionPanelTab clearfix colelem" id="u580-4"><!-- content --><p>89.3 RADIO LA RED SAN JUAN</p></div><div class="AccordionPanelContent clearfix colelem" id="u581"><!-- group --><div class="clip_frame grpelem" id="u619">
-        <!-- image -->
-        <?php echo $this->Html->image('radio-online.jpg', array('id'=>'u619_img', 'class'=>'block', 'alt' => 'Grupo Medios','width'=>"314" ,'height'=>"149" )) ?>
-
-      </div></div></li>
-      <li class="AccordionPanel clearfix colelem" id="u629"><!-- vertical box --><div class="AccordionPanelTab clearfix colelem" id="u633-4"><!-- content --><p>89.7 RADIO</p></div><div class="AccordionPanelContent disn clearfix colelem" id="u630"><!-- group --><div class="clip_frame grpelem" id="u670">
-        <!-- image -->
-        
-        <?php echo $this->Html->image('radio-online.jpg', array('id'=>'u670_img', 'class'=>'block', 'alt' => 'Grupo Medios','width'=>"314" ,'height'=>"149" )) ?>
-
-      </div></div></li>
-      <li class="AccordionPanel clearfix colelem" id="u643"><!-- vertical box --><div class="AccordionPanelTab clearfix colelem" id="u645-4"><!-- content --><p>94.1 RADIO</p></div><div class="AccordionPanelContent disn clearfix colelem" id="u644"><!-- group --><div class="clip_frame grpelem" id="u699">
-        <!-- image -->
-        
-        <?php echo $this->Html->image('radio-online.jpg', array('id'=>'u699_img', 'class'=>'block', 'alt' => 'Grupo Medios','width'=>"314" ,'height'=>"149" )) ?>
-      </div></div></li>
-      <li class="AccordionPanel clearfix colelem" id="u652"><!-- vertical box --><div class="AccordionPanelTab clearfix colelem" id="u653-4"><!-- content --><p>HITS RADIO</p></div><div class="AccordionPanelContent disn clearfix colelem" id="u654"><!-- group --><div class="clip_frame grpelem" id="u706">
-        <!-- image -->
-       
-        <?php echo $this->Html->image('radio-online.jpg', array('id'=>'u706_img', 'class'=>'block', 'alt' => 'Grupo Medios','width'=>"314" ,'height'=>"149" )) ?>
-      </div></div>
+      <?php echo $this->element('radio_player');?>
       
-      
-    </li>
     <li>
 
       <ul style="none-style">
