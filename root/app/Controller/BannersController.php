@@ -175,7 +175,7 @@ class BannersController extends AppController {
     }elseif ($this->request->data['section']==3) {
       $fields['single']= $this->request->data['value'];      
     }
-    
+    var_dump($fields);
     $this->Banner->set($fields);
    
     $result= $this->Banner->save();

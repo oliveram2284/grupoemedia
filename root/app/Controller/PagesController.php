@@ -171,6 +171,7 @@ class PagesController extends AppController {
 																);
 
 		$this->set("banners",$banners);
+	
 	}
 
 

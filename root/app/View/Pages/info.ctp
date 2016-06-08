@@ -40,7 +40,7 @@
         </ul>
       </div>
     </div>
-    <div class="fb-share-button pull-right" data-href="http://grupoemedia.ittsj.com/deportes.html/noticia-de-prueba" data-layout="button" data-mobile-iframe="true"></div>
+    <div class="fb-share-button pull-right" data-href="<?php echo trim(Router::url( $this->here, true ))?>" data-message="hopooasd" data-layout="button" data-mobile-iframe="true"></div>
     <div class="clearfix colelem hidden" id="pbuttonu1184"><!-- group -->
        <div class="Button rounded-corners growButton clearfix grpelem" id="buttonu1184"><!-- container box -->
         <div class="clearfix grpelem" id="u1220"><!-- group -->
@@ -136,6 +136,31 @@
         <?php echo $this->Html->image('radio-online.jpg', array('id'=>'u619_img', 'class'=>'block', 'alt' => 'Grupo Medios','width'=>"314" ,'height'=>"149" )) ?>
        </div></div></li>
       </ul>
+
+    <ul class="none-style" style="margin-top:350px;">
+      <li>
+          <a class="twitter-timeline" data-width="100%" data-height="450" data-dnt="true" data-theme="light" data-link-color="#E95F28" href="https://twitter.com/OtroDiaParaiso">Tweets by OtroDiaParaiso</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+          
+        </li>
+        <li>
+         <a href="http://www.accuweather.com/es/ar/san-juan/5952/weather-forecast/5952" class="aw-widget-legal"><!--
+          By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at http://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at http://www.accuweather.com/en/privacy.--></a>
+          <div id="awcc1465413241434" class="aw-widget-current"  data-locationkey="5952" data-unit="c" data-language="es" data-useip="false" data-uid="awcc1465413241434"></div>
+          <script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
+        </li>
+          <?php foreach ($banners as $key => $banner):?>
+            <li>
+              <?php if($banner['Banner']['link']):?>
+                <a href="">
+                  <?php echo $this->Html->image("../files/banners/".$banner['Banner']['imagen'], array('id'=>'u1094_img', 'class'=>'img-responsive', 'alt' => $banner['Banner']['title'],'title' => $banner['Banner']['title'],'style'=>'height:auto;' )) ?>         
+                </a>
+              <?php else:?>
+                <?php echo $this->Html->image("../files/banners/".$banner['Banner']['imagen'], array('id'=>'u1094_img', 'class'=>'img-responsive', 'alt' =>  $banner['Banner']['title'], 'title' => $banner['Banner']['title'] ,'style'=>'height:auto;' )) ?> 
+              <?php endif;?>
+
+            </li>
+          <?php endforeach;?>
+        </ul>
     <div class="grpelem hidden" id="u1190"><!-- custom html -->      
       <div class="MT_resize_buttons">
         <div class="MT_grow table">

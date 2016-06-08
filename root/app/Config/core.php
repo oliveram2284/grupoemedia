@@ -389,5 +389,9 @@ Cache::config('_cake_model_', array(
 	'duration' => $duration
 ));
 
-Configure::write('youtube_api_key','AIzaSyC4oy3U2dZnp60ECQhehH6MDYLRZJnJLbI');
-define("YOUTUBE_API_KEY","AIzaSyC4oy3U2dZnp60ECQhehH6MDYLRZJnJLbI");
+//Configure::write('youtube_api_key','AIzaSyC4oy3U2dZnp60ECQhehH6MDYLRZJnJLbI');
+
+
+//define("YOUTUBE_API_KEY","AIzaSyC4oy3U2dZnp60ECQhehH6MDYLRZJnJLbI");
+Configure::write('youtube_api_key','AIzaSyCH5Z_dz0KchUdT26rB-tT1WCpdJQUXoco');
+define("YOUTUBE_API_KEY","AIzaSyCH5Z_dz0KchUdT26rB-tT1WCpdJQUXoco");

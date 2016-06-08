@@ -3,7 +3,11 @@
   frameborder="0"/> -->
 
   <?php echo $this->Html->css(array('public_css/noticia.css',))?>
-
+<style type="text/css">
+.pull-right{
+  padding-right: 25px;
+}
+</style>
 <div class="row">
   <div class="left_col">
     <div class="categ cat_label <?php echo (isset($video['Category']['name']))? 'tag_'.$video['Category']['slug']: 'tag_other'?>">

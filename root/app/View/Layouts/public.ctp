@@ -228,6 +228,24 @@ display: inline;
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
+
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+ 
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+ 
+  return t;
+}(document, "script", "twitter-wjs"));</script>
  </head>
  <body>
   <!--HTML Widget code--> 
@@ -264,6 +282,7 @@ display: inline;
     'public_js/webpro.js',
     'public_js/musewpdisclosure.js',
     'public_js/jquery.watch.js',
+    'public_js/rss.js',
     )
   )?> 
    
@@ -320,7 +339,7 @@ $(document).ready(function () {
 
   //$("#jquery_jplayer_1").jPlayer({
     
-
+    
 
 </script>
 

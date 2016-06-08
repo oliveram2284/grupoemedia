@@ -91,11 +91,10 @@
 
     
 
-
+   <div class="fb-comments" data-href="<?php echo trim(Router::url( $this->here, true ))?>" data-width="576" data-numposts="5" fb-xfbml-state="rendered" >
+    </div>
    
-    <div class="clip_frame grpelem" id="u1291"><!-- image -->
-      <img class="block" id="u1291_img" src="<?php echo $this->webroot."img/imagen pegada 1920x1080-crop-u1291.jpg"; ?>" alt=""/>
-     </div>
+   
   </div>
   <div class="right_col">
     <ul class="AccordionWidget clearfix colelem" id="accordionu574"><!-- vertical box -->
