@@ -35,7 +35,7 @@ class PagesController extends AppController {
  *
  * @var array
  */
-	public $uses = array('Post','Category','Video');
+	public $uses = array('Post','Category','Video','Banner');
 	public $components = array('Paginator');
 /**
  * Displays a view
@@ -77,7 +77,7 @@ class PagesController extends AppController {
 		$this->set("posts",$posts);
 
 		$videos=$this->Video->find( "all",
-															array(
+																array(
 																		'conditions'=>array('Video.status'=>0,'Video.is_deleted'=>0), 
 																		'fields'=>array('Video.id','Video.title','Video.youtube_id','Video.url','Video.default_img','Video.default_width','Video.default_height','Video.description','Category.id','Category.name'),
 																		'order' => array('Video.created DESC'),
@@ -86,6 +86,15 @@ class PagesController extends AppController {
 														);
 		$this->set("videos",$videos);
 
+		$banners=$this->Banner->find(			
+																	'all',
+																	array(
+																		'conditions'=>array('Banner.is_deleted'=>0, "Banner.index"=>1),
+																		'order' => array( 'Banner.order ASC'),
+																	)			
+																);
+
+		$this->set("banners",$banners);
 
 	}
 
@@ -118,6 +127,17 @@ class PagesController extends AppController {
 		$this->set("posts",$posts);
 
 
+		$banners=$this->Banner->find(			
+																	'all',
+																	array(
+																		'conditions'=>array('Banner.is_deleted'=>0, "Banner.category"=>1),
+																		'order' => array( 'Banner.order ASC'),
+																	)			
+																);
+
+		$this->set("banners",$banners);
+
+
 		
 	}
 
@@ -141,6 +161,16 @@ class PagesController extends AppController {
 																	);	
 		$this->set("post",$post);
 		$this->set("last_three",$last_three);
+
+		$banners=$this->Banner->find(			
+																	'all',
+																	array(
+																		'conditions'=>array('Banner.is_deleted'=>0, "Banner.single"=>1),
+																		'order' => array( 'Banner.order ASC'),
+																	)			
+																);
+
+		$this->set("banners",$banners);
 	}
 
 

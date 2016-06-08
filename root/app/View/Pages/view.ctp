@@ -60,8 +60,13 @@
         <!-- image -->
        
         <?php echo $this->Html->image('radio-online.jpg', array('id'=>'u706_img', 'class'=>'block', 'alt' => 'Grupo Medios','width'=>"314" ,'height'=>"149" )) ?>
-      </div></div></li>
+      </div></div>
+      
+      
+    </li>
      </ul>
+
+
     </div>
 
     <div class="clearfix colelem" id="ppu1080"><!-- group -->

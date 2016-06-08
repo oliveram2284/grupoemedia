@@ -15,16 +15,16 @@
     
     
     <object width="550" height="390">
-  <param name="movie"
+      <param name="movie"
          value="https://www.youtube.com/v/<?php echo $video['Video']['youtube_id'];?>?version=3&autoplay=0"></param>
-  <param name="allowScriptAccess" value="always"></param>
-  <embed src="https://www.youtube.com/v/<?php echo $video['Video']['youtube_id'];?>?version=3&autoplay=0"
+      <param name="allowScriptAccess" value="always"></param>
+      <embed src="https://www.youtube.com/v/<?php echo $video['Video']['youtube_id'];?>?version=3&autoplay=0"
          type="application/x-shockwave-flash"
          allowscriptaccess="always"
          width="550" height="390"></embed>
-</object>
+    </object>
     
-
+    <div class="fb-share-button pull-right" data-href="http://grupoemedia.ittsj.com/deportes.html/noticia-de-prueba" data-layout="button" data-mobile-iframe="true"></div>
     <div class="clearfix colelem hidden" id="pbuttonu1184"><!-- group -->
        <div class="Button rounded-corners growButton clearfix grpelem" id="buttonu1184"><!-- container box -->
         <div class="clearfix grpelem" id="u1220"><!-- group -->
@@ -74,10 +74,9 @@
       
       
     </div> -->
-
-    <div class="clip_frame grpelem" id="u1291"><!-- image -->
-      <img class="block" id="u1291_img" src="<?php echo $this->webroot."img/imagen pegada 1920x1080-crop-u1291.jpg"; ?>" alt=""/>
-     </div>
+    <div class="fb-comments" data-href="<?php echo trim(Router::url( $this->here, true ))?>" data-width="576" data-numposts="5" fb-xfbml-state="rendered" >
+    </div>
+    
   </div>
   <div class="right_col">
     <ul class="AccordionWidget clearfix colelem" id="accordionu574"><!-- vertical box -->

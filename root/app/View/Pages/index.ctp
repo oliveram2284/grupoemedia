@@ -168,8 +168,25 @@
           <li class="more_video"><a href="<?php 
          echo $this->Html->url('/videos.html', array('controller' => 'pages', 'action' => 'videos',1)); ?>"> <i class="fa fa-youtube-play" aria-hidden="true"></i> Ver Más Videos</a> </li>
         </ul>
+        <ul style="none-style">
+          <?php foreach ($banners as $key => $banner):?>
+            <li>
+              <?php if($banner['Banner']['link']):?>
+                <a href="">
+                  <?php echo $this->Html->image("../files/banners/".$banner['Banner']['imagen'], array('id'=>'u1094_img', 'class'=>'img-responsive', 'alt' => $banner['Banner']['title'],'title' => $banner['Banner']['title'],'style'=>'height:auto;' )) ?>         
+                </a>
+              <?php else:?>
+                <?php echo $this->Html->image("../files/banners/".$banner['Banner']['imagen'], array('id'=>'u1094_img', 'class'=>'img-responsive', 'alt' =>  $banner['Banner']['title'], 'title' => $banner['Banner']['title'] ,'style'=>'height:auto;' )) ?> 
+              <?php endif;?>
+
+            </li>
+          <?php endforeach;?>
+        </ul>
       </div>
+
      </div>
   <!--- RIGHT COLUMN -->
 
 </div>
+
+

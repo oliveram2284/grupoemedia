@@ -136,13 +136,15 @@ Configure::write('Bs3.Form.styles', array(
 
 CakePlugin::load('Facebook');
 
+
+
 /** demo **/
 
 Configure::write("fb_api_id",'1638758863114974');
 Configure::write("fb_api_key",'d0777ddcd0b818a85d65783644cf189d');
 Configure::write('url_callback','http://grupoemedia.ittsj.com/login-callback');
 Configure::write('fb_page_id','1777427702472833');
-Configure::write('fb_user_token','EAAXScUfokt4BAPBtrDvsYtOvC8r9I4CGlWTvT3oIByGPozMsRNEZCFz2LmWagNVoR8ZB5fZC1UZBEGsTeptzZAKPZAuBAsD5aVdWWtkSHdqudpB90jqHEiy1YwD3hfTyA68dL4Yax3yZAFGrfLxNdkGBdMUNZAr38XkQYRMqhwyilLR9zauZCFZAxo');    
+Configure::write('fb_user_token','EAAXScUfokt4BANUNbyzSs94EJ2ZB5WRugZBbVFOZBHpjPZC1ort8n33v95dovCB538rKRFO9Ohfaif9uEkUZAvWkZAOYYJAuV0DcuKn6Rv9KPys4AV6phMBk7CUkSH2hBQVIAGrPkWVfT6ZAFgFCCOCcYEgbEXzLxwZD');    
 Configure::write("fb_app_token",'1638758863114974|zvTfhAKLdtCpjFzvT4ZAdKfnuGg');
 
 

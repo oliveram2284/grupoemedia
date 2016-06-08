@@ -98,19 +98,19 @@
 									</ul>
 								</li>
 
-								<li class="hidden">
-									<a href="#" class="js-sub-menu-toggle"><i class="fa fa-usd fa-fw fa-2x"></i>
-										<span class="text">&nbsp; &nbsp;Lista de Precios</span>
+								<li class="">
+									<a href="#" class="js-sub-menu-toggle"><i class="fa fa-hand-o-up fa-fw fa-2x"></i>
+										<span class="text">&nbsp; &nbsp;Banners</span>
 										<i class="toggle-icon fa fa-angle-left"></i>
 									</a>
 									<ul class="sub-menu">
 										<li>
-											<a href="<?php echo $this->Html->url(array("controller" => "pricelist","action" => "add")); ?>">
+											<a href="<?php echo $this->Html->url(array("controller" => "banners","action" => "add")); ?>">
 												<span class="text">Nuevo</span>
 											</a>
 										</li>
 										<li>
-											<a href="<?php echo $this->Html->url(array("controller" => "pricelist","action" => "index")); ?>">
+											<a href="<?php echo $this->Html->url(array("controller" => "banners","action" => "index")); ?>">
 												<span class="text">Listar</span>
 											</a>
 										</li>
