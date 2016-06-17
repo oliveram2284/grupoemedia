@@ -139,21 +139,21 @@ CakePlugin::load('Facebook');
 
 
 /** demo **/
-
+/*
 Configure::write("fb_api_id",'1638758863114974');
 Configure::write("fb_api_key",'d0777ddcd0b818a85d65783644cf189d');
 Configure::write('url_callback','http://grupoemedia.ittsj.com/login-callback');
 Configure::write('fb_page_id','1777427702472833');
 Configure::write('fb_user_token','EAAXScUfokt4BANUNbyzSs94EJ2ZB5WRugZBbVFOZBHpjPZC1ort8n33v95dovCB538rKRFO9Ohfaif9uEkUZAvWkZAOYYJAuV0DcuKn6Rv9KPys4AV6phMBk7CUkSH2hBQVIAGrPkWVfT6ZAFgFCCOCcYEgbEXzLxwZD');    
 Configure::write("fb_app_token",'1638758863114974|zvTfhAKLdtCpjFzvT4ZAdKfnuGg');
-
+*/
 
 /** live **/
-/*
+
 Configure::write("fb_api_id",'249297292100310');
 Configure::write("fb_api_key",'dfbf4d9fad10adc55d6a54f898e9bf8e');
 Configure::write('fb_url_callback','http://grupoemedia.ittsj.com/login-callback');
 Configure::write('fb_page_id','600750570056224');
-Configure::write('fb_user_token','EAADivAyKAtYBAFsvuymXEchBnclAK7DSJ3DNhJL0YsfKwBRyvMTLHdIVQwKZAT1bLgRQvNYBYywrTD5LhaK394kRSxBGULWZBOkuFNEvxD45EFJnvj3tLqVogQPsUVXqg2WSzvSHfhpnqWZAUztkdXhiMCEObBnZAHOfGZCZBwmwZDZD');    
-Configure::write("fb_app_token",'249297292100310|UG6qdN_RTrobhqUYbPMVh8IB3Aw');*/
+Configure::write('fb_user_token','EAADivAyKAtYBAASUOOKWzxmH4DaefbZB9513X9V0Q3WjAbzQ0iwfdsYsxXmc9ZAZA5LuDVrDii8Bzod6YywVCtt4F55kSQH3sQXCuk882r2iM3z5CKWaOaZBMKJ4o4aYvB4O8dVxZB1ZBaw2cTPI2EyrK9nAiqp84ZD');    
+Configure::write("fb_app_token",'249297292100310|UG6qdN_RTrobhqUYbPMVh8IB3Aw');
 

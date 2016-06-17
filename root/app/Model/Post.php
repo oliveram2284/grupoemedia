@@ -5,32 +5,36 @@ class Post extends AppModel {
 
   public $belongsTo = array('Category','User'); 
   public $hasMany="File";  
-  /*
+  
   public $validate=array(
     'title'=>array(
-              'notEmpty' => array(
+              'notBlank' => array(
                 'required' => true,
-                'rule' => 'notEmpty',
+                'rule' => 'notBlank',
                 'message' => 'Por favor, ingrese un Título de Noticia'
               )
             ),
-    'overview'=>array(
-              'notEmpty' => array(
+            'overview'=>array(
+              'notBlank' => array(
                 'required' => true,
-                'rule' => 'notEmpty',
+                'rule' => 'notBlank',
                 'message' => 'Por favor, ingrese un Copete de Noticia'
+              ),
+              'between' => array(
+                  'rule' => array('lengthBetween', 10, 300),
+                  'message' => 'Entre 10 y 300 caracteres'
               )
             ),
-    'body'=>array(
+            'body'=>array(
               'notEmpty' => array(
                 'required' => true,
-                'rule' => 'notEmpty',
+                'rule' => 'notBlank',
                 'message' => 'Por favor, ingrese un Cuerpo de Noticia'
               )
             ),
    
-    );
-  */
+  );
+  
 
   public function beforeSave($options = array()) {
 

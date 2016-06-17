@@ -1,43 +1,111 @@
 
+<style type="text/css">
+.div_img{
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 300px;
+}
+#u850 p{
+ padding-top: 20px;
+}
+#u1083-4 p{
+  padding-top: 5px;
+  font-weight: normal;
+  font-size: 13px;
+}
+
+#u892 {
+  z-index: 101;
+  width: 100px;
+  margin-left: 520px;
+  margin-bottom: 0px;
+  position: relative;
+  height: 25px;
+}
+
+#u892 ul{
+  display:inline-block;
+}
+#u892 ul li{
+  display:inline-block;
+}
+
+#u1091 {
+  z-index: 101;
+  width: 100px;  
+  margin-left: 210px;
+  margin-bottom: 0px;
+  position: relative;
+  height: 25px;
+}
+#u1091 ul{
+  display:inline-block;
+}
+#u1091 ul li{
+  display:inline-block;
+}
+</style>
 
 <div class="clearfix colelem" id="pu1071"><!-- group -->
+    
      <div class="clearfix grpelem" id="u1071"><!-- group -->
-      <div class="clearfix grpelem " id="u850"><!-- column -->
-        <?php 
-          $url= "/".$last_post['Category']['slug'].".html/". $last_post['Post']['slug'];
-          echo $this->Html->link($last_post['Post']['title'], $url ,    
-            array('class' => 'main_title')
-          );
-        ?>
-       <div class="clearfix colelem" id="u892">
-        <!-- group -->
-        <div class="clip_frame grpelem" id="u872"><!-- image -->
-          <?php echo $this->Html->image('shareface.png', array('id'=>'u872_img', 'class'=>'block', 'alt' => 'Grupo Medios','width'=>"20" ,'height'=>"20" )) ?>
-        </div>
-        <div class="clip_frame grpelem" id="u880"><!-- image -->
-          <?php echo $this->Html->image('sharetweet.png', array('id'=>'u880', 'class'=>'block', 'alt' => 'Grupo Medios','width'=>"20" ,'height'=>"20" )) ?>
-        </div>
-       </div>
-      </div>
-      <a class="nonblock nontext transition clip_frame clearfix grpelem" id="u851" href="<?php echo $this->Html->url($url)?>">
-        <!-- image -->
-        <?php 
-          if(is_null($last_post['Post']['image'])){
-            echo $this->Html->image($last_post['Post']['image_url'], 
-            array('id'=>'u851_img', 'class'=>'block img-responsive', 'alt' => 'Grupo Medios','width'=>"628" ,'height'=>"391" )) ;
-          }else{
-          echo $this->Html->image("../files/".$last_post['Post']['image'], 
-          array('id'=>'u851_img', 'class'=>'block img-responsive', 'alt' => 'Grupo Medios','width'=>"628" ,'height'=>"391" )) ;
-        } 
+      <?php if(!empty($last_post)):?>
+        <div class="clearfix grpelem " id="u850"><!-- column -->
+          <?php 
+            $url= "/".$last_post['Category']['slug'].".html/". $last_post['Post']['slug'];
+            echo $this->Html->link($last_post['Post']['title'], $url ,    
+              array('class' => 'main_title')
+            );
           ?>
-      </a>
-      <div class="clearfix grpelem cat_label <?php echo (isset($last_post['Category']['name']))? 'tag_'.$last_post['Category']['slug']: 'tag_other'?>" id="u854s">
-        <!-- group -->
-       <div class="clearfix grpelem " id="u855-5"><!-- content -->
-        <p><?php echo strtoupper($last_post['Category']['name']);?>  <span id="u855-2"></span></p>
-       </div>
-      </div>
+          <p><?php echo $last_post['Post']['overview']?></p>
+
+          <div class="clearfix colelem" id="u892">          
+            <ul>
+              <li><?php echo $this->Html->image('shareface.png', array('id'=>'', 'class'=>'block', 'alt' => 'Grupo Medios','width'=>"20" ,'height'=>"20" )) ?>
+              </li>
+              <li><?php echo $this->Html->image('sharetweet.png', array('id'=>'', 'class'=>'block', 'alt' => 'Grupo Medios','width'=>"20" ,'height'=>"20" )) ?>
+              </li>
+              <?php 
+                $has_audio=false;
+                if(!empty($last_post['File'])){
+                  foreach ($last_post['File'] as $key => $value) {
+                    if($value['type']=='audio'){
+                      $has_audio=true;
+                      break;
+                    }
+                  }
+                }              
+                if($has_audio):?>
+                <li><i class="fa fa-volume-up fa-2x" aria-hidden="true"></i></li>
+                <?php endif;?>
+            </ul>          
+          </div>
+
+        </div>
+        <a class="nonblock nontext transition clip_frame clearfix grpelem" id="u851" href="<?php echo $this->Html->url($url)?>" >
+          <!-- image -->
+          <?php 
+            if(!is_null($last_post['Post']['image']) && ($last_post['Post']['image'] !='') ){
+              echo $this->Html->image("../files/".$last_post['Post']['image'], 
+              array('id'=>'u851_img', 'class'=>'block img-responsive', 'alt' => 'Grupo Medios','width'=>"628" ,'height'=>"391" ));
+            }elseif (!is_null($last_post['Post']['image_url']) && ($last_post['Post']['image_url']!='')) {
+              echo $this->Html->image($last_post['Post']['image_url'], 
+              array('id'=>'u851_img', 'class'=>'block img-responsive', 'alt' => 'Grupo Medios','width'=>"628" ,'height'=>"391" )) ;
+            }else{              
+              echo '<div class="div_img" style="background-image:url('.$this->webroot.'img/default_img.png)"> </div>';   
+            }
+          ?>
+        </a>
+        <div class="clearfix grpelem cat_label <?php echo (isset($last_post['Category']['name']))? 'tag_'.$last_post['Category']['slug']: 'tag_other'?>" id="u854s">
+          <!-- group -->
+         <div class="clearfix grpelem " id="u855-5"><!-- content -->
+          <p><?php echo strtoupper($last_post['Category']['name']);?>  <span id="u855-2"></span></p>
+         </div>
+        </div>
+      <?php endif;?>
      </div>
+
      <ul class="AccordionWidget clearfix grpelem" id="accordionu574"><!-- vertical box -->
       <?php echo $this->element('radio_player');?> 
      </ul>
@@ -61,34 +129,60 @@
         </div>      
         <div class="clip_frame colelem" id="u1061"><!-- image --> 
           <?php 
-              if(is_null($a_post['Post']['image'])){
-                echo $this->Html->image($a_post['Post']['image_url'], 
-                array('id'=>'u851_img', 'class'=>'block img-responsive', 'alt' => 'Grupo Medios','width'=>"628" ,'height'=>"391" ,'onerror'=>"this.src='".$this->webroot.'img/img_no_found.jpeg'."'")) ;
-              }else{
+
+            if(!is_null($a_post['Post']['image']) && ($a_post['Post']['image'] !='') ){
               echo $this->Html->image("../files/".$a_post['Post']['image'], 
-              array('id'=>'u851_img', 'class'=>'block img-responsive', 'alt' => 'Grupo Medios','width'=>"628" ,'height'=>"391" ,'onerror'=>"this.src='".$this->webroot.'img/img_no_found.jpeg'."'")) ;
-            } 
+              array('id'=>'u851_img', 'class'=>'block img-responsive', 'alt' => 'Grupo Medios','width'=>"628" ,'height'=>"391" ));
+            }elseif (!is_null($a_post['Post']['image_url']) && ($a_post['Post']['image_url']!='')) {
+              echo $this->Html->image($a_post['Post']['image_url'], 
+              array('id'=>'u851_img', 'class'=>'block img-responsive', 'alt' => 'Grupo Medios','width'=>"628" ,'height'=>"391" )) ;
+            }else{              
+              echo '<div class="div_img" style="background-image:url('.$this->webroot.'img/default_img.png)"> </div>';   
+            }
           ?>
    
         </div>      
         <div class="clearfix colelem" id="u1096"><!-- column -->       
           <div class="position_content" id="u1096_position_content">        
-            <div class="clearfix colelem" id="u1083-4"><!-- content -->
+            <div class="clearfix colelem" id="u1083-4"><!-- content -->              
               <?php 
                 $url= "/".$a_post['Category']['slug'].".html/". $a_post['Post']['slug'];
                 echo $this->Html->link(strtoupper($a_post['Post']['title']), $url ,    
                   array('class' => 'subs_title')
                 );
               ?>   
-            </div>        
-            <div class="clearfix colelem" id="u1091"><!-- group -->         
+              <p><?php echo $a_post['Post']['overview']?></p>
+            </div>    
+
+            <div class="clearfix colelem hidden" id="u1091"><!-- group -->         
               <div class="clip_frame grpelem" id="u1094"><!-- image -->          
                 <?php echo $this->Html->image('shareface.png', array('id'=>'u1094_img', 'class'=>'block', 'alt' => 'Grupo Medios','width'=>"20" ,'height'=>"20" )) ?>          
               </div>         
               <div class="clip_frame grpelem" id="u1092"><!-- image -->          
                 <?php echo $this->Html->image('sharetweet.png', array('id'=>'u1092_img', 'class'=>'block', 'alt' => 'Grupo Medios','width'=>"20" ,'height'=>"20" )) ?>         
               </div>        
-            </div>       
+            </div> 
+            <div class="clearfix colelem" id="u1091">          
+            <ul>
+              <li><?php echo $this->Html->image('shareface.png', array('id'=>'', 'class'=>'block', 'alt' => 'Grupo Medios','width'=>"20" ,'height'=>"20" )) ?>
+              </li>
+              <li><?php echo $this->Html->image('sharetweet.png', array('id'=>'', 'class'=>'block', 'alt' => 'Grupo Medios','width'=>"20" ,'height'=>"20" )) ?>
+              </li>
+              <?php 
+                $has_audio=false;
+                if(!empty($a_post['File'])){
+                  foreach ($a_post['File'] as $key => $value) {
+                    if($value['type']=='audio'){
+                      $has_audio=true;
+                      break;
+                    }
+                  }
+                }              
+                if($has_audio):?>
+                <li><i class="fa fa-volume-up fa-2x" aria-hidden="true"></i></li>
+                <?php endif;?>
+            </ul>          
+          </div>      
           </div>      
         </div>
 
@@ -113,6 +207,9 @@
      </div>
      <div class="rss-paragraph colelem" id="u935"><!-- custom html -->
       <div class="colelem" id="u1370"><!-- custom html -->
+
+       
+        
        <!-- start feedwind code --><script type="text/javascript">document.write('\x3Cscript type="text/javascript" src="' + ('https:' == document.location.protocol ? 'https://' : 'http://') + 'feed.mikle.com/js/rssmikle.js">\x3C/script>');</script><script type="text/javascript">(function() {var params = {rssmikle_url: "http://www.clarin.com/rss/lo-ultimo/",rssmikle_frame_width: "300",rssmikle_frame_height: "600",frame_height_by_article: "10",rssmikle_target: "_blank",rssmikle_font: "Arial, Helvetica, sans-serif",rssmikle_font_size: "12",rssmikle_border: "off",responsive: "off",rssmikle_css_url: "",text_align: "left",text_align2: "left",corner: "off",scrollbar: "on",autoscroll: "off",scrolldirection: "up",scrollstep: "20",mcspeed: "20",sort: "New",rssmikle_title: "off",rssmikle_title_sentence: "",rssmikle_title_link: "",rssmikle_title_bgcolor: "#FFD700",rssmikle_title_color: "#FFFFFF",rssmikle_title_bgimage: "",rssmikle_item_bgcolor: "#FFFFFF",rssmikle_item_bgimage: "",rssmikle_item_title_length: "55",rssmikle_item_title_color: "#DD0707",rssmikle_item_border_bottom: "on",rssmikle_item_description: "on",item_link: "off",rssmikle_item_description_length: "150",rssmikle_item_description_color: "#666666",rssmikle_item_date: "gl1",rssmikle_timezone: "Etc/GMT",datetime_format: "%e.%m.%Y %k:%M",item_description_style: "text+tn",item_thumbnail: "full",item_thumbnail_selection: "auto",article_num: "20",rssmikle_item_podcast: "off",keyword_inc: "",keyword_exc: ""};feedwind_show_widget_iframe(params);})();</script><div style="font-size:10px; text-align:center; width:300px;"><a href="http://feed.mikle.com/" target="_blank" style="color:#CCCCCC;">RSS Feed Widget</a><!--Please display the above link in your web page according to Terms of Service.--></div><!-- end feedwind code --><!--  end  feedwind code -->
 </div>
     </div>
@@ -170,5 +267,9 @@
   <!--- RIGHT COLUMN -->
 
 </div>
+
+
+
+
 
 

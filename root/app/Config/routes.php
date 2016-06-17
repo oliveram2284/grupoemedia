@@ -26,6 +26,7 @@
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
 	Router::connect('/', array('controller' => 'pages', 'action' => 'index', 'home'));
+	//Router::connect('/', array('controller' => 'pages', 'action' => 'mantenimiento', 'home'));
 	Router::connect('/admin', array('controller' => 'dashboard'));
 
 	Router::connect('/locales.html', array('controller' => 'pages', 'action' => 'view',1));

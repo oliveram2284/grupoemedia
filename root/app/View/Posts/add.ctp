@@ -1,4 +1,6 @@
-
+<style type="text/css">
+.cake-error{ display: none;}
+</style>
 
 <!-- include libraries(jQuery, bootstrap) -->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
@@ -20,9 +22,8 @@
     'label' => array('class' => 'col-lg-2 control-label'),
     'between' => '<div class="col-lg-10">',
     'after' => '</div>',
-    'error' => array('attributes' => array('wrap' => 'span', 'class' => 'help-inline')),
-
-),'type' => 'file'
+    'error' => array('attributes' => array('wrap' => 'span', 'class' => 'help-block alert-danger','style'=>'height:60px; padding:20px')),
+  ),'type' => 'file','novalidate'=>true
 );
 ?>
 <?php $this->Html->addCrumb('Usuarios', '/users');?>
@@ -44,6 +45,7 @@
 	    padding: 0px !important;
 	}
 </style>
+
 <div class="row">
 	<div class="col-md-12">
 		<div class="widget">
@@ -51,6 +53,10 @@
 				<h3>Alta Notícia</h3>
 			</div>
 			<div class="widget-content">
+				<div class="alert alert-danger alert-dismissible hidden" id="msg_error" role="alert">
+					
+				</div>
+				
 				<?php echo $this->Form->create('Post',$form_option); ?>
 			    <fieldset>
 			      <legend><?php echo __('Notícia'); ?></legend>
@@ -115,10 +121,30 @@
 	$(document).ready(function() {  
 		$('#summernote').summernote({
 			fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
-  height: 500,                 // set editor height
-  minHeight: null,             // set minimum height of editor
-  maxHeight: 900,             // set maximum height of editor
-  focus: true                  // set focus to editable area after initializing summernote
-});
+		  height: 500,                 // set editor height
+		  minHeight: null,             // set minimum height of editor
+		  maxHeight: 900,             // set maximum height of editor
+		  focus: true                  // set focus to editable area after initializing summernote
+		});
+
+		$("form").submit(function(){
+			console.debug("===> SUBMIT");
+			var file=$("#PostImage").val();
+			var img_url=$("#PostImageUrl").val();
+			console.debug("file VALUE: %o",file);
+			console.debug("img_url VALUE: %o",img_url);
+			if(file=="" && img_url==""){
+				//$("#msg_error").html("<span></span>");
+				var output='<button type="button" class="close" data-dismiss="alert" ';
+				output+=' aria-label="Close"><span aria-hidden="true">&times;</span></button>  ';
+				output+='<strong>Error!</strong> Debe seleccionar una imagen para crear una noticia';
+				$("#msg_error").html(output).removeClass("hidden");
+				return false;
+			}else{
+				return true;
+			}
+
+		});
+
 	});
 </script>

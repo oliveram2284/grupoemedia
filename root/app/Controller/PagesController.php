@@ -46,11 +46,30 @@ class PagesController extends AppController {
  */
 	
 	public function beforeFilter() {
-      parent::beforeFilter();
-      $this->Auth->allow();
+    parent::beforeFilter();
+    $this->Auth->allow();
+
+   	/*var_dump($this->Session->read('maintenance'));
+   	if($this->Session->read('maintenance')){
+   		return $this->redirect('/');
+   	}else{
+   		return $this->redirect('pages/index');
+
+   	}*/
   }
 
+  public function mantenimiento($check=true){
 
+  	$this->layout = 'public';
+
+  	/*if($check){
+  		
+			$this->Session->write('maintenance',true);
+  	}else{
+
+  	}*/
+  	
+  }
   public function index(){
 		$this->layout = 'public';
 		//echo $category_slug;
@@ -60,22 +79,31 @@ class PagesController extends AppController {
 
 		$last_post=$this->Post->find(	'first',
 																	array(
-																		'conditions'=>array('Post.status'=>0), 
+																		'conditions'=>array('Post.status'=>0,"OR"=>array('Post.is_deleted'=>0),), 
 																		'order' => array('Post.created DESC')			
 																	)		
 																);
 
+		if(!empty($last_post)){
+			$this->set('last_post',$last_post);	
 
-		$this->set('last_post',$last_post);
-
-		$posts=$this->Post->find( "all",
+			$posts=$this->Post->find( "all",
 															array(
-																		'conditions'=>array('Post.id !='=>$last_post['Post']['id'],'Post.status'=>0), 
-																		'order' => array('Post.order DESC')			
+																		'conditions'=>array('Post.id !='=>$last_post['Post']['id'],'Post.status'=>0,"OR"=>array('Post.is_deleted'=>0)),
+
+																		'order' => array('Post.created DESC',),
+																		'limit' => '10'			
 																	)	
 														);
-		$this->set("posts",$posts);
+			//var_dump(count($posts));
+			$this->set("posts",$posts);
 
+		}else{
+			$this->set('last_post',array());	
+			$this->set('posts',array());	
+		}
+
+		
 		$videos=$this->Video->find( "all",
 																array(
 																		'conditions'=>array('Video.status'=>0,'Video.is_deleted'=>0), 
@@ -95,6 +123,7 @@ class PagesController extends AppController {
 																);
 
 		$this->set("banners",$banners);
+
 
 	}
 
@@ -119,7 +148,7 @@ class PagesController extends AppController {
 		$posts=$this->Post->find( "all",
 															array(
 																		'conditions'=>array( 'Category.id'=>$id, 'Post.id !='=>$last_post['Post']['id'],'Post.is_deleted'=>0), 
-																		'order' => array('Post.order DESC')			
+																		'order' => array('Post.created DESC')		
 																	)	
 														);
 
@@ -156,7 +185,7 @@ class PagesController extends AppController {
 																	array(
 																		'conditions'=>array('Post.id !='=>$post['Post']['id'],'Post.status'=>0),
 																		'limit'=>3,
-																		'order'=> array('Post.created DESC')			
+																		'order' => array('Post.created DESC')					
 																		)
 																	);	
 		$this->set("post",$post);

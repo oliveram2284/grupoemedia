@@ -58,6 +58,13 @@
     padding-left: 50%!important;
     z-index: 11!important;
 }
+
+.div_img{
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 300px;
+}
 </style>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <div class="clearfix colelem" id="pu1071"><!-- group -->
@@ -83,9 +90,18 @@
       </div>
       <a class="nonblock nontext transition clip_frame clearfix grpelem" id="u851" href="<?php echo $this->Html->url($url)?>">
         <!-- image -->
-        <?php $img_url=(is_null($last_post['Post']['image']))? $last_post['Post']['image_url']: $this->webroot."files/".$last_post['Post']['image'];?>
-        <?php echo $this->Html->image( $img_url, 
-        array('id'=>'u851_img', 'class'=>'block img-responsive', 'alt' => 'Grupo Medios','width'=>"628" ,'height'=>"391" )) ?>
+       
+        <?php 
+          if(!is_null($last_post['Post']['image']) && ($last_post['Post']['image'] !='') ){
+            echo $this->Html->image("../files/".$last_post['Post']['image'], 
+            array('id'=>'u851_img', 'class'=>'block img-responsive', 'alt' => 'Grupo Medios','width'=>"628" ,'height'=>"391" ));
+          }elseif (!is_null($last_post['Post']['image_url']) && ($last_post['Post']['image_url']!='')) {
+            echo $this->Html->image($last_post['Post']['image_url'], 
+            array('id'=>'u851_img', 'class'=>'block img-responsive', 'alt' => 'Grupo Medios','width'=>"628" ,'height'=>"391" )) ;
+          }else{              
+            echo '<div class="div_img" style="background-image:url('.$this->webroot.'img/default_img.png)"> </div>';   
+          }
+        ?>
       </a>
       <div class="clearfix grpelem cat_label <?php echo (isset($last_post['Category']['name']))? 'tag_'.$last_post['Category']['slug']: 'tag_other'?>" id="u854s">
         <!-- group -->
@@ -144,9 +160,20 @@
               </div>       
             </div>      
           </div>      
-          <div class="clip_frame colelem" id="u1061"><!-- image -->  
-          <?php $img_url1=(is_null($posts[$i]['Post']['image']))? $posts[$i]['Post']['image_url']: $this->webroot."files/".$posts[$i]['Post']['image'];?>      
-            <?php echo $this->Html->image($img_url1,  array('id'=>'u1061_img', 'class'=>'img-responsive', 'alt' => 'Grupo Medios','width'=>"313" ,'height'=>"191", 'onerror'=>"this.src='".$this->webroot.'img/img_no_found.jpeg'."'" )) ?>      
+          <div class="clip_frame colelem" id="u1061"><!-- image --> 
+          
+          <?php 
+            if(!is_null( $posts[$i]['Post']['image']) && ( $posts[$i]['Post']['image'] !='') ){
+              echo $this->Html->image("../files/". $posts[$i]['Post']['image'], 
+              array('id'=>'u1061_img', 'class'=>'block img-responsive', 'alt' => 'Grupo Medios','width'=>"628" ,'height'=>"391" ));
+            }elseif (!is_null( $posts[$i]['Post']['image_url']) && ( $posts[$i]['Post']['image_url']!='')) {
+              echo $this->Html->image($posts[$i]['Post']['image_url'], 
+              array('id'=>'u1061_img', 'class'=>'block img-responsive', 'alt' => 'Grupo Medios','width'=>"628" ,'height'=>"391" )) ;
+            }else{              
+              echo '<div class="div_img" style="background-image:url('.$this->webroot.'img/default_img.png)"> </div>';   
+            }
+          ?>
+
           </div>      
           <div class="clearfix colelem" id="u1096"><!-- column -->  
             <div class="position_content" id="u1096_position_content">        
@@ -203,8 +230,17 @@
           </div>      
         </div>      
         <div class="clip_frame colelem" id="u1061"><!-- image -->  
-        <?php $img_url1=(is_null($posts[$i]['Post']['image']))? $posts[$i]['Post']['image_url']: $this->webroot."files/".$posts[$i]['Post']['image'];?>      
-          <?php echo $this->Html->image($img_url1,  array('id'=>'u1061_img', 'class'=>'img-responsive', 'alt' => 'Grupo Medios','width'=>"313" ,'height'=>"191", 'onerror'=>"this.src='".$this->webroot.'img/img_no_found.jpeg'."'" )) ?>      
+        <?php 
+            if(!is_null( $posts[$i]['Post']['image']) && ( $posts[$i]['Post']['image'] !='') ){
+              echo $this->Html->image("../files/". $posts[$i]['Post']['image'], 
+              array('id'=>'u1061_img', 'class'=>'block img-responsive', 'alt' => 'Grupo Medios','width'=>"628" ,'height'=>"391" ));
+            }elseif (!is_null( $posts[$i]['Post']['image_url']) && ( $posts[$i]['Post']['image_url']!='')) {
+              echo $this->Html->image($posts[$i]['Post']['image_url'], 
+              array('id'=>'u1061_img', 'class'=>'block img-responsive', 'alt' => 'Grupo Medios','width'=>"628" ,'height'=>"391" )) ;
+            }else{              
+              echo '<div class="div_img" style="background-image:url('.$this->webroot.'img/default_img.png)"> </div>';   
+            }
+          ?>
         </div>      
         <div class="clearfix colelem" id="u1096"><!-- column -->  
           <div class="position_content" id="u1096_position_content">        
@@ -250,8 +286,17 @@
           </div>      
         </div>     
         <div class="clip_frame colelem" id="u1061"><!-- image -->        
-          <?php $img_url1=(is_null($posts[$i]['Post']['image']))? $posts[$i]['Post']['image_url']: $this->webroot."files/".$posts[$i]['Post']['image'];?>      
-          <?php echo $this->Html->image($img_url1,  array('id'=>'u1061_img', 'class'=>'img-responsive', 'alt' => 'Grupo Medios','width'=>"313" ,'height'=>"191", 'onerror'=>"this.src='".$this->webroot.'img/img_no_found.jpeg'."'" )) ?>          
+          <?php 
+            if(!is_null( $posts[$i]['Post']['image']) && ( $posts[$i]['Post']['image'] !='') ){
+              echo $this->Html->image("../files/". $posts[$i]['Post']['image'], 
+              array('id'=>'u1061_img', 'class'=>'block img-responsive', 'alt' => 'Grupo Medios','width'=>"628" ,'height'=>"391" ));
+            }elseif (!is_null( $posts[$i]['Post']['image_url']) && ( $posts[$i]['Post']['image_url']!='')) {
+              echo $this->Html->image($posts[$i]['Post']['image_url'], 
+              array('id'=>'u1061_img', 'class'=>'block img-responsive', 'alt' => 'Grupo Medios','width'=>"628" ,'height'=>"391" )) ;
+            }else{              
+              echo '<div class="div_img" style="background-image:url('.$this->webroot.'img/default_img.png)"> </div>';   
+            }
+          ?>         
         </div>      
         <div class="clearfix colelem" id="u1096"><!-- column -->       
           <div class="position_content" id="u1096_position_content">        

@@ -149,7 +149,7 @@ $cakeVersion =  "";//__d('cake_dev', 'CakePHP %s', Configure::version())
 
 						<div class="content">
 							
-							<?php echo $this->Session->flash(); ?>
+							
 
 							<div class="main-header">
 								<h2><?php echo (isset($pagetitle))? $pagetitle:'Blank Page';  ?></h2>
@@ -157,6 +157,7 @@ $cakeVersion =  "";//__d('cake_dev', 'CakePHP %s', Configure::version())
 
 								
 							</div>
+							<?php echo $this->Session->flash(); ?>
 							<div class="main-content">
 
 

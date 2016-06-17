@@ -111,6 +111,7 @@
         <?php echo $this->Html->image('radio-online.jpg', array('id'=>'u619_img', 'class'=>'block', 'alt' => 'Grupo Medios','width'=>"314" ,'height'=>"149" )) ?>
        </div></div></li>
       </ul>
+      
     <div class="grpelem hidden" id="u1190"><!-- custom html -->      
       <div class="MT_resize_buttons">
         <div class="MT_grow table">

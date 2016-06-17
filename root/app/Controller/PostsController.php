@@ -58,6 +58,8 @@ class PostsController extends AppController {
     $this->set('categories',$categories);
     $this->set('posts',$posts);
 
+    
+
 	}
 	public function add(){
 
@@ -119,11 +121,14 @@ class PostsController extends AppController {
         
         $result=$this->public_on_fb($post_id);
         
-        $this->Session->setFlash(__('La Notícia se ha guardado'));
+        $this->Session->setFlash(__('La Notícia se ha guardado'),'flash_view', $params = array('class'=>'alert-success'));
+
         return $this->redirect(array('action' => 'index'));
       }
+
       $this->Session->setFlash(
-          __('La Notícia no se pudo guardar. Por favor, inténtelo de nuevo.')
+          __('La Notícia no se pudo guardar. Por favor, inténtelo de nuevo.'),
+          'flash_view', $params = array('class'=>'alert-danger')
       );
     }
     $categories=$this->Category->find('list',array('conditions'=>array('is_deleted'=>0)));
